@@ -1,5 +1,5 @@
 <?php
-require_once('../models/apiModel.php');
+require_once('models/apiModel.php');
 
 
 
@@ -16,7 +16,7 @@ class ApiController
     public function suma($value1, $value2)
     {
         $result = $this->api->suma($value1, $value2);
-
+       
         return $this->getResult($result, "suma");
     }
 
@@ -48,9 +48,6 @@ class ApiController
             'operacion' => $operacion,
             'data' => $result
         ];
-        
-        header('Content-Type: application/json');
-        echo json_encode($response);
 
         return $response;
     }

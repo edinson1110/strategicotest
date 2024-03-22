@@ -1,26 +1,25 @@
 <?php
 
-    class ApiModel{
+class ApiModel
+{
 
-        public static function suma($value1, $value2){
-            $resultado = $value1 + $value2;
-            return $resultado;
-        }
-
-        public static function resta($value1, $value2){
-            $resultado = $value1 - $value2;
-            return $resultado;
-        }
-        
-        public static function multiplicacion($value1, $value2){
-            $resultado = $value1 * $value2;
-            return $resultado;
-        }
-
-        public static function division($value1, $value2){
-            $resultado = $value1 / $value2;
-            return $resultado;
-        }
-
-
+    public  function suma($value1, $value2)
+    {
+        return $value1 + $value2;
     }
+
+    public  function resta($value1, $value2)
+    {
+        return $value1 - $value2;
+    }
+
+    public  function multiplicacion($value1, $value2)
+    {
+        return $value1 * $value2;
+    }
+
+    public  function division($value1, $value2)
+    {
+        return $value1 / $value2;
+    }
+}

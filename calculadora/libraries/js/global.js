@@ -1,16 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let url = window.location.href+"controller/CalculadoraController.php";
-  
-  let urlApi = url.split("/").slice(0, 4).join("/") + "/api/index.php/";
+  let url = window.location.href;
   
   let preview = $("#calc");
 
   $(".number").click(function (e) {
-    let valueNew = $(e.target).data("value");
+	let valueNew = $(e.target).data("value");
 
-    let valueOld = preview.val();
+	let valueOld = preview.val();
+	preview.val(valueOld + valueNew);
+	n = false;
 
-    preview.val(valueOld + valueNew);
   });
 
   $("#result").click(function () {
@@ -36,6 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   $("#clearAll").click(function () {
     preview.val("");
+    $("#resp").text('');
+  });
+
+  $("#clearOne").click(function () {
+	let text = preview.val().slice(0, -1);
+	preview.val(text);
   });
 
   function ejecutar(value1, value2, op) {
@@ -46,15 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     $.ajax({
-        url: url,
+        url: url+"controller/CalculadoraController.php",
         type: 'POST',
         contentType: 'application/x-www-form-urlencoded',
         data: data,
-
         success: function(response) {
             let jsonString = JSON.parse(response);
             let resp = JSON.parse(jsonString).result;
-            $("#resp").text('El resultado de la '+resp.operacion+ ' es igual a '+ resp.data)
+            $("#resp").text(resp.data)
             
         },
         error: function(xhr, status, error) {

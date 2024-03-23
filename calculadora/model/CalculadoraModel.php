@@ -25,8 +25,9 @@ class CalculadoraModel
         
         $response = curl_exec($this->curl);
         curl_close($this->curl);
-       
-        echo json_encode($response);
+        
+        $data = json_encode($response);
+        return $data;
 
        
     }

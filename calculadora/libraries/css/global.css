@@ -2,4 +2,26 @@
     margin-left: 5px;
     margin-bottom: 2px;
     width: 45px;
+    
+}
+
+.functions{
+    width: 206px;
+}
+
+.content-cal{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 0 0 0.1875rem rgba(115, 103, 240, 0.16);
+
+    & .preview{
+        width: 240px;
+        
+        & input{
+            text-align: end;
+
+        }
+    }
+    
 }

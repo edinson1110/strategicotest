@@ -46,7 +46,7 @@ class ApiController
         $response = [
             'success' => true,
             'operacion' => $operacion,
-            'data' => $result
+            'data' => number_format($result, 0, ',', '.')
         ];
 
         return $response;

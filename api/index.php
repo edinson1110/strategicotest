@@ -30,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $result = $api->division($_POST['value1'], $_POST['value2']);
                 break;
             default:
-
                 header('HTTP/1.1 404 Not Found');
                 echo json_encode(['error' => 'Not Found']);
             break;

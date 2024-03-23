@@ -9,7 +9,7 @@ $url = $_SERVER['REQUEST_URI'];
 $urlDiv = explode('/', trim($url, '/'));
 
 
-$operacion = isset($urlDiv[3]) ? $urlDiv[3] : '';
+$operacion = isset($urlDiv[count($urlDiv)-1]) ? $urlDiv[count($urlDiv)-1] : '';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

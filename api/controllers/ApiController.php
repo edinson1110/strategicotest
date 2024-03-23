@@ -37,16 +37,17 @@ class ApiController
     public function division($value1, $value2)
     {
         $result = $this->api->division($value1, $value2);
-
+        
         return $this->getResult($result, "division");
     }
 
     public function getResult($result,$operacion)
     {
+        $decimal = $operacion == "division" ? 2:0;
         $response = [
             'success' => true,
             'operacion' => $operacion,
-            'data' => number_format($result, 0, ',', '.')
+            'data' => number_format($result, $decimal, ',', '.')
         ];
 
         return $response;

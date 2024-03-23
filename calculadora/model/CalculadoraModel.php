@@ -9,8 +9,12 @@ class CalculadoraModel
 
     public function __construct()
     {
-        $this->apiUrl = "http://localhost/strategico/api/index.php/";
         $this->curl = curl_init();
+        // $this->apiUrl = "http://localhost/strategico/api/index.php/";
+
+        $url = strstr($_SERVER['REQUEST_URI'], "calculadora", true);
+        $this->apiUrl = "http://".$_SERVER['HTTP_HOST'] .'/'.$url.'api/index.php/';
+        
     }
 
     public  function calcular($operacion, $params)
